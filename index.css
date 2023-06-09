@@ -1,4 +1,4 @@
-.body {
+body {
   font-family: "Poppins", sans-serif;
 }
 .container {
@@ -43,7 +43,12 @@
 .navbar .hamburger {
   display: none;
 }
-.navbar .bar {
+.navbar .hamburger:hover {
+  cursor: pointer;
+}
+.navbar .bar1,
+.bar2,
+.bar3 {
   background-color: black;
   height: 4px;
   width: 36px;
@@ -51,6 +56,40 @@
   border-radius: 10px;
 }
 
+/* Mobile Nav */
+.mobileNav {
+  width: 80px;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: -160px;
+  top: 0;
+  z-index: 2;
+  padding: 16px;
+
+  transition: transform 0.5s ease;
+}
+.mobileNav img {
+  width: 24px;
+  height: 24px;
+}
+.mobileNav a {
+  text-decoration: none;
+  color: black;
+  margin: 16px 0;
+}
+.mobileNav a:hover {
+  text-decoration: underline;
+}
+.openDrawer {
+  transform: translateX(-160px);
+}
+
+/* Grid */
 .project-grid {
   display: grid;
   grid-template-areas:
@@ -165,7 +204,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 3;
     background-color: white;
   }
   .navbar .right {
@@ -195,4 +234,43 @@
   .project .overlay {
     font-size: 24px;
   }
+}
+
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+@keyframes flipBar1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg) translate(4px, 10px);
+  }
+}
+@keyframes flipBar3 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg) translate(4px, -10px);
+  }
+}
+.animateBar1 {
+  animation: flipBar1 1s;
+  animation-fill-mode: forwards;
+}
+.animateBar2 {
+  animation: fadeBar2 1s;
+  animation-fill-mode: forwards;
+}
+.animateBar3 {
+  animation: flipBar3 1s;
+  animation-fill-mode: forwards;
 }
